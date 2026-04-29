@@ -1,0 +1,103 @@
+// Componente de estilos responsivos inline
+export function ResponsiveStyles() {
+  return (
+    <style>{`
+      * { box-sizing: border-box; }
+      
+      /* Desktop - 1024px+ */
+      .rifa-grid { 
+        display: grid; 
+        gap: clamp(4px, 1vw, 8px); 
+        margin: 0 0 28px; 
+        grid-template-columns: repeat(10, 1fr); 
+      }
+      
+      .prize-card { 
+        display: flex; 
+        flex-direction: row; 
+        align-items: stretch;
+        gap: clamp(12px, 3vw, 20px);
+        overflow: hidden;
+      }
+      
+      .prize-img-wrap { 
+        flex-shrink: 0;
+        min-width: clamp(120px, 25vw, 170px); 
+        max-width: clamp(120px, 25vw, 170px);
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .progress-label { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        flex-wrap: wrap;
+        gap: clamp(8px, 2vw, 16px);
+      }
+
+      /* Tablet - 768px a 1023px */
+      @media (max-width: 1023px) {
+        .rifa-grid { grid-template-columns: repeat(8, 1fr); gap: clamp(4px, 0.8vw, 6px); }
+      }
+
+      /* Tablet pequeno/Mobile grande - 481px a 767px */
+      @media (max-width: 767px) {
+        .rifa-grid { 
+          grid-template-columns: repeat(6, 1fr); 
+          gap: clamp(3px, 0.7vw, 5px); 
+          margin: 0 0 20px;
+        }
+        
+        .prize-card { 
+          flex-direction: column;
+          gap: 0;
+        }
+        
+        .prize-img-wrap { 
+          min-width: 100%; 
+          max-width: 100%; 
+          width: 100%; 
+          min-height: 180px;
+          padding: 12px 16px !important;
+        }
+        
+        .progress-label { 
+          flex-direction: column; 
+          align-items: flex-start; 
+          gap: 8px;
+        }
+      }
+
+      /* Mobile médio - 361px a 480px */
+      @media (max-width: 480px) {
+        .rifa-grid { 
+          grid-template-columns: repeat(5, 1fr); 
+          gap: clamp(3px, 0.5vw, 4px); 
+          margin: 0 0 16px;
+        }
+      }
+
+      /* Mobile pequeno - até 360px */
+      @media (max-width: 360px) {
+        .rifa-grid { 
+          grid-template-columns: repeat(4, 1fr); 
+          gap: 3px; 
+          margin: 0 0 12px;
+        }
+      }
+
+      /* Regras gerais de responsividade */
+      .rifa-grid button {
+        aspect-ratio: 1;
+        min-height: clamp(28px, 8vw, 50px);
+      }
+
+      @media (max-width: 640px) {
+        body { margin: 0; padding: 0; }
+      }
+    `}</style>
+  );
+}
